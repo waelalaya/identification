@@ -12,9 +12,9 @@ const isAuth=require("../middleware/passport")
 
 //register
 router.post("/register",registerRules(),validation, async(req,res)=>{
-    const {name,lastName,email,password}=req.body;
+    const {name,lastName,email,password,image}=req.body;
     try {
-        const newUser=new User({name,lastName,email,password})
+        const newUser=new User({name,lastName,email,password,image})
         // check of the email exist
         const searchedUser= await User.findOne({email})
         if (searchedUser){
